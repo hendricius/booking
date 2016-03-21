@@ -10,6 +10,7 @@ module Booking
         Faraday.new(:url => 'https://distribution-xml.booking.com') do |faraday|
           faraday.basic_auth @auth_username, @auth_password
           faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+          faraday.response :json, :content_type => /\bjson$/
         end
       end
     end

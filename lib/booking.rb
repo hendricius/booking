@@ -1,4 +1,5 @@
 require "faraday"
+require "faraday_middleware"
 require "json"
 require "booking/version"
 require "booking/client"
