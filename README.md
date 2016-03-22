@@ -7,7 +7,7 @@ This is a wrapper for the Booking.com API. Currently only the `gethotelavailbili
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'booking-ruby'
+gem 'booking-ruby', require: ['booking_api']
 ```
 
 And then execute:
