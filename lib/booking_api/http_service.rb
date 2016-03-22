@@ -1,8 +1,8 @@
-module Booking
+module BookingApi
   class HttpService
     def initialize
-      @auth_username = Booking.username
-      @auth_password = Booking.password
+      @auth_username = BookingApi.username
+      @auth_password = BookingApi.password
     end
 
     def connection

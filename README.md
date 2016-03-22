@@ -23,8 +23,8 @@ Or install it yourself as:
 Initialize the the gem by setting your username and password:
 
 ```
-  Booking.username = 'your-username'
-  Booking.password = 'your-password'
+  BookingApi.username = 'your-username'
+  BookingApi.password = 'your-password'
 ```
 
 Right now only one endpoint is supported.
@@ -35,7 +35,7 @@ params = {
   checkout: (Time.now + (60 * 60 * 24 * 7 * 2)).strftime("%F"),
   hotel_ids: [303762]
 }
-response = Booking::Client.new.get_hotel_availabillity(request_parameters: params)
+response = BookingApi::Client.new.get_hotel_availabillity(request_parameters: params)
 
 # the parsed response is in the body
 => response.body

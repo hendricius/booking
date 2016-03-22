@@ -1,4 +1,4 @@
-module Booking
+module BookingApi
   class Client
 
     def initialize
@@ -29,7 +29,7 @@ params = {
   checkout: (Time.now + (60 * 60 * 24 * 7 * 2)).strftime("%F"),
   hotel_ids: [303762]
 }
-response = Booking::Client.new.get_hotel_availabillity(request_parameters: params)
+response = BookingApi::Client.new.get_hotel_availabillity(request_parameters: params)
 
 puts response.body
 {

@@ -1,11 +1,11 @@
 require "faraday"
 require "faraday_middleware"
 require "json"
-require "booking/version"
-require "booking/client"
-require "booking/http_service"
+require "booking_api/version"
+require "booking_api/client"
+require "booking_api/http_service"
 
-module Booking
+module BookingApi
 
   class << self
     attr_accessor :username, :password
