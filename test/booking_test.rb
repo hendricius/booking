@@ -1,11 +1,9 @@
 require 'test_helper'
 
-class BookingTest < Minitest::Test
-  def test_that_it_has_a_version_number
-    refute_nil ::BookingApi::VERSION
-  end
-
-  def test_it_does_something_useful
-    assert false
+describe BookingApi::Client do
+  describe "#http_service" do
+    it "returns a http service" do
+      assert_equal BookingApi::HttpService, BookingApi::Client.new.http_service.class
+    end
   end
 end
