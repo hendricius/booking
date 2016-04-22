@@ -16,6 +16,15 @@ module BookingApi
       http_service.request_post("/json/getHotelAvailabilityV2", default_parameters.merge(request_parameters))
     end
 
+    def hotel_description_photos(hotel_ids: [], request_parameters: {})
+      raise ArgumentError if hotel_ids.empty?
+      default_parameters = {
+        hotel_ids: hotel_ids.join(",")
+      }
+      response = http_service.request_post("/json/bookings.getHotelDescriptionPhotos", default_parameters.merge(request_parameters))
+      Images::ResponseList.new(response)
+    end
+
     private
 
   end

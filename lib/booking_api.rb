@@ -6,6 +6,7 @@ require "booking_api/client"
 require "booking_api/http_service"
 require "booking_api/images"
 require "booking_api/images/image"
+require "booking_api/images/response_list"
 
 module BookingApi
 
