@@ -54,5 +54,18 @@ describe BookingApi::Client do
       entries = client.hotel_description_photos(hotel_ids: [1,2]).entries
       assert_equal BookingApi::Images::Image, entries.first.class
     end
+
+    it "raises an error if the body is a string or nil" do
+      stub_request(:any, /.*booking.com.*/).
+      to_return(:status => 200, :body => "", :headers => {})
+      assert_raises JSON::ParserError do
+        client.hotel_description_photos(hotel_ids: [1,2]).entries
+      end
+      stub_request(:any, /.*booking.com.*/).
+      to_return(:status => 200, :body => nil, :headers => {})
+      assert_raises JSON::ParserError do
+        client.hotel_description_photos(hotel_ids: [1,2]).entries
+      end
+    end
   end
 end

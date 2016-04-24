@@ -14,9 +14,11 @@ module BookingApi
       end
 
       def parsed_entries_from_response
-        response.body
-      rescue JSON::ParserError
-        []
+        if response.body && (response.body.is_a?(Hash) || response.body.is_a?(Array))
+          response.body
+        else
+          raise JSON::ParserError
+        end
       end
     end
   end
