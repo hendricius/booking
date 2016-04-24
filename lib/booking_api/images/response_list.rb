@@ -14,7 +14,7 @@ module BookingApi
       end
 
       def parsed_entries_from_response
-        JSON.parse(response.body)
+        response.body
       rescue JSON::ParserError
         []
       end

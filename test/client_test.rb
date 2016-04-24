@@ -32,7 +32,7 @@ describe BookingApi::Client do
 
     before(:each) do
       stub_request(:any, /.*booking.com.*/).
-      to_return(:status => 200, :body => sample_response.to_json, :headers => {})
+      to_return(:status => 200, :body => sample_response, :headers => {})
     end
 
     it "has a method" do
