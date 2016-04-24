@@ -26,4 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry"
   spec.add_dependency "faraday", "~> 0.9"
   spec.add_dependency "faraday_middleware"
+  spec.add_dependency "activesupport"
 end

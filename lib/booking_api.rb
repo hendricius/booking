@@ -1,6 +1,8 @@
 require "faraday"
 require "faraday_middleware"
 require "json"
+require "active_support/core_ext/hash/indifferent_access"
+
 require "booking_api/version"
 require "booking_api/client"
 require "booking_api/http_service"
