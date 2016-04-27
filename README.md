@@ -1,5 +1,7 @@
 # Booking
 
+[![Build Status](https://travis-ci.org/hendricius/booking.svg?branch=master)](https://travis-ci.org/hendricius/booking)
+
 This is a wrapper for the Booking.com API. Currently only the `gethotelavailbilityV2` is supported.
 
 ## Installation
