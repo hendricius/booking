@@ -25,6 +25,11 @@ module BookingApi
       Images::ResponseList.new(response)
     end
 
+    def get_hotel_description_translations(request_parameters: {})
+      default_parameters = {}
+      http_service.request_post("/json/bookings.getHotelDescriptionTranslations", default_parameters.merge(request_parameters))
+    end
+
     private
 
   end
