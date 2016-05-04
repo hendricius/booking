@@ -8,5 +8,8 @@ require "booking_api"
 
 # (If you use this, don't forget to add pry to your Gemfile!)
 
+def reload!
+  Dir.glob("lib/**/*.rb") { |file| load file }
+end
 require "pry"
 Pry.start
