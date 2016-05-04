@@ -7,8 +7,9 @@ require "booking_api"
 # with your gem easier. You can also use a different console, if you like.
 
 # (If you use this, don't forget to add pry to your Gemfile!)
-# require "pry"
-# Pry.start
 
-require "irb"
-IRB.start
+def reload!
+  Dir.glob("lib/**/*.rb") { |file| load file }
+end
+require "pry"
+Pry.start

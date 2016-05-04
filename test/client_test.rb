@@ -68,4 +68,36 @@ describe BookingApi::Client do
       end
     end
   end
+
+
+  describe "#get_hotel_description_translations" do
+    let(:sample_response) do
+      [
+        {
+          "description": "Das Asterisk Hotel bietet 3-Sterne-Unterkünfte in 2 renovierten Gebäuden aus dem 19. Jahrhundert im Zentrum von Amsterdam. Die Unterkunft ist 10 Minuten vom Rijksmuseum entfernt und verfügt über kostenloses WLAN in allen Bereichen.",
+          "descriptiontype_id": 6,
+          "hotel_id": "10003",
+          "languagecode": "de"
+        },
+        {
+          "description": "Asterisk Hotel offers 3-star accommodation in 2 restored 19th century buildings in the centre of Amsterdam. It is situated 10 minutes from the Rijksmuseum and offers free WiFi in the entire property.",
+          "hotel_id": "10003",
+          "descriptiontype_id": 6,
+          "languagecode": "en"
+        },
+      ]
+    end
+
+    before(:each) do
+      stub_request(:any, /.*booking.com.*/).
+      to_return(:status => 200, :body => sample_response, :headers => {})
+    end
+
+    it "returns a Faraday::Response object containing the response in the `body` method" do
+      response = client.get_hotel_description_translations
+      assert_equal Faraday::Response, response.class
+      assert_equal Array, response.body.class
+      assert_equal sample_response.length, response.body.length
+    end
+  end
 end
