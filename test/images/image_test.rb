@@ -43,7 +43,7 @@ describe BookingApi::Images::Image do
 
   describe "#largest_file_url" do
     it "returns the url" do
-      assert_equal "http://aff.bstatic.com/images/hotel/840x460/333/33377034.jpg", object.largest_file_url
+      assert_equal "http://aff.bstatic.com/images/hotel/max1280x900/333/33377034.jpg", object.largest_file_url
     end
   end
 

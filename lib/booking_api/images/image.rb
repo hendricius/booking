@@ -16,8 +16,11 @@ module BookingApi
         @raw_data[:photo_id].to_i
       end
 
+      # returns the largest file url for the image
+      #
+      # available sizes include: 840x460 and 1280x900
       def largest_file_url
-        @raw_data[:url_original].gsub("max500", "840x460")
+        @raw_data[:url_original].gsub("max500", "max1280x900")
       end
 
       def is_default_image?
