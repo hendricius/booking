@@ -100,4 +100,64 @@ describe BookingApi::Client do
       assert_equal sample_response.length, response.body.length
     end
   end
+
+  describe "#get_hotel_overviews" do
+    let(:sample_response) do
+      [{
+        commission: 0,
+        countrycode: "nl",
+        nr_rooms: "20",
+        maxrate: 189,
+        class: "3",
+          city: "Amsterdam",
+          district: "",
+          review_nr: nil,
+          url: "http://www.booking.com/hotel/nl/asterisk.html",
+          currencycode: "EUR",
+          ranking: nil,
+          city_id: "-2140479",
+          exact_class: "3.0",
+          preferred: "0",
+          checkout: {
+            from: "",
+            to: "11:00"
+          },
+          max_rooms_in_reservation: "0",
+          languagecode: "en",
+          address: "Den Texstraat 16",
+          minrate: 78,
+          zip: "1017 ZA",
+          book_domestic_without_cc_details: "0",
+          is_closed: 0,
+          class_is_estimated: 0,
+          name: "Asterisk Hotel 3 Stars",
+          hoteltype_id: "14",
+          review_score: 8.5,
+          checkin: {
+            from: "15:00",
+            to: ""
+          },
+          contractchain_id: "",
+          hotel_id: "10003",
+          created: "0000-00-00 00:00:00",
+          max_persons_in_reservation: "0",
+          location: {
+            latitude: "52.358834732828775",
+            longitude: "4.893867373466492"
+          },
+          pagename: "asterisk"
+      }]
+    end
+    before(:each) do
+      stub_request(:any, /.*booking.com.*/).
+      to_return(:status => 200, :body => sample_response, :headers => {})
+    end
+
+    it "returns a Faraday::Response object containing the response in the `body` method" do
+      response = client.get_hotel_overviews
+      assert_equal Faraday::Response, response.class
+      assert_equal Array, response.body.class
+      assert_equal sample_response.length, response.body.length
+    end
+  end
 end
