@@ -15,11 +15,12 @@ module BookingApi
       end
     end
 
-    def request_post(url, data)
+    def request_post(url, data, request_options = {})
       connection.post do |req|
         req.url url
         req.headers['Content-Type'] = 'application/json'
         req.body = data.to_json
+        req.options.timeout = request_options[:timeout] if request_options[:timeout]
       end
     end
 
