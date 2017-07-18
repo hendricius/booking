@@ -10,11 +10,11 @@ module BookingApi
     end
 
     # checks for the given parameters if the hotel is available
-    def get_hotel_availabillity(request_parameters: {})
+    def get_hotel_availabillity(request_parameters: {}, request_options: {})
       default_parameters = {
         room1: "A,A",
       }
-      http_service.request_post("/json/getHotelAvailabilityV2", default_parameters.merge(request_parameters))
+      http_service.request_post("/json/getHotelAvailabilityV2", default_parameters.merge(request_parameters), request_options)
     end
 
     # gets hotel photos for the given hotel ids
